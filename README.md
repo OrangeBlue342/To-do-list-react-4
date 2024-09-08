@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Lista zadań
+
+An app for creating practical to-do lists
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
