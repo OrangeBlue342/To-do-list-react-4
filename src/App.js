@@ -3,18 +3,22 @@ import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
 
-const tasks = [
-  {id: 1, content: "Prejść na Reacta,", done: false},
-  {id: 2, content: "Zjeść obiad", done: true},
-]
-
 
 
 function App() {
   const [hideDoneTasks, sethideDoneTasks] = useState(false);
+  const [tasks, setTasks] = useState(
+    [
+      {id: 1, content: "Prejść na Reacta,", done: false},
+      {id: 2, content: "Zjeść obiad", done: true},
+    ]);
 
 const togglehideDoneTasks = () => {
   sethideDoneTasks(hideDoneTasks => !hideDoneTasks);
+};
+
+const removeTask = (id) => {
+  setTasks(tasks => tasks.filter(task => task.id !== id));
 };
 
   return (
@@ -29,7 +33,7 @@ const togglehideDoneTasks = () => {
 <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} togglehideDoneTasks={togglehideDoneTasks} />
 </h2>
 
-<Tasks tasks={tasks} hideDoneTasks= {hideDoneTasks}/>
+<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} removeTask={removeTask} />
 </main>
     </div>
   );
