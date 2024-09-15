@@ -21,6 +21,16 @@ const removeTask = (id) => {
   setTasks(tasks => tasks.filter(task => task.id !== id));
 };
 
+const toggleTaskDone = (id) => {
+setTasks(tasks => tasks.map(task =>{
+if(task.id === id) {
+  return {...task, done: !task.done };
+}
+
+return task;
+}));
+};
+
   return (
     <div>
       <main className="body">
@@ -30,10 +40,18 @@ const removeTask = (id) => {
 
 <h2 className="list_header">Lista zadań 
 
-<Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} togglehideDoneTasks={togglehideDoneTasks} />
+<Buttons 
+tasks={tasks} 
+hideDoneTasks={hideDoneTasks} 
+togglehideDoneTasks={togglehideDoneTasks} />
 </h2>
 
-<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} removeTask={removeTask} />
+<Tasks 
+tasks={tasks} 
+hideDoneTasks={hideDoneTasks} 
+removeTask={removeTask} 
+toggleTaskDone={toggleTaskDone}
+/>
 </main>
     </div>
   );
