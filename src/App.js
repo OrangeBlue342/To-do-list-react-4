@@ -31,6 +31,11 @@ return task;
 }));
 };
 
+const setAllDone = () => {
+  setTasks(tasks => tasks.map(task => ({...task, done: true
+  })));
+};
+
   return (
     <div>
       <main className="body">
@@ -43,7 +48,9 @@ return task;
 <Buttons 
 tasks={tasks} 
 hideDoneTasks={hideDoneTasks} 
-togglehideDoneTasks={togglehideDoneTasks} />
+togglehideDoneTasks={togglehideDoneTasks}
+setAllDone={setAllDone}
+/>
 </h2>
 
 <Tasks 
