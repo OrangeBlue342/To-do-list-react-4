@@ -36,12 +36,19 @@ const setAllDone = () => {
   })));
 };
 
+const addNewTask = (NewTaskContent) => {
+setTasks(tasks => [...tasks, {content: NewTaskContent,
+  done: false,
+  id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+}]);
+};
+
   return (
     <div>
       <main className="body">
     <h1 className="header">Lista zadań</h1>
     <h2 className="tasks_header">Dodaj nowe zadanie</h2>
-<Form/>
+<Form addNewTask={addNewTask} />
 
 <h2 className="list_header">Lista zadań 
 
